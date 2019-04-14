@@ -1,0 +1,9 @@
+{
+	"port": 8080,
+	"bodyLimit": "100kb",
+	"corsHeaders": ["Link"],
+	"jwtSecret": "3a8990969faf3c8876b52dc645c9f696",
+	"uploads": {
+		"avatar": "http://localhost:8080/api/upload/avatar/avatar.gif"
+	}
+}

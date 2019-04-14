@@ -1,0 +1,57 @@
+[
+    {
+      "group": "admin",
+      "permissions": [
+        {
+          "resource": "*",
+          "methods": "*",
+          "action": "allow"
+        }
+      ]
+    },
+    {
+      "group": "user",
+      "permissions": [
+        {
+          "resource": "roles",
+          "methods": "*",
+          "action": "deny"
+        },
+        {
+          "resource": "facets",
+          "methods": "*",
+          "action": "allow"
+        },
+        {
+          "resource": "upload/*",
+          "methods": "*",
+          "action": "allow"
+        }
+      ]
+    },
+    {
+      "group": "guest",
+      "permissions": [
+        {
+          "resource": "auth/*",
+          "methods": "*",
+          "action": "allow"
+        },
+        {
+          "resource": "media/*",
+          "methods": "*",
+          "action": "allow"
+        },
+        {
+          "resource": "upload/*",
+          "methods": ["GET"],
+          "action": "allow"
+        },
+        {
+          "resource": "profile/*",
+          "methods": "*",
+          "action": "allow"
+        }
+      ]
+    }
+  ]
