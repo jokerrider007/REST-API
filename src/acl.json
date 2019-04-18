@@ -39,7 +39,7 @@
         },
         {
           "resource": "media/*",
-          "methods": "*",
+          "methods": ["Delete"],
           "action": "allow"
         },
         {

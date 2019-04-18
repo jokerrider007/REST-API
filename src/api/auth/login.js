@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt-nodejs'
 import User from '../../models/user.model';
 
 export default ({ config, db }) => resource({
-	
+
 	/** POST / - Create a new entity */
 	create({ body }, res) {
 		if (!body.username || !body.password) {
@@ -15,7 +15,7 @@ export default ({ config, db }) => resource({
 			if(!user) return res.status(400).json({ message: 'No user' })
 			bcrypt.compare(body.password, user.password, (err, result) => {
 				if(result) {
-					const token = jwt.sign({id: user._id, role: 'admin'}, config.jwtSecret, { expiresIn: '1h' })
+					const token = jwt.sign({id: user._id, role: 'admin'}, config.jwtSecret, { expiresIn: '2h' })
 					return res.status(200).json({ message: 'ok', token })
 				}
 				else {

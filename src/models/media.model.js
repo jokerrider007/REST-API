@@ -35,7 +35,9 @@ const mediaSchema = new Schema({
     description: String,
     countryOfOrigin: String,
     source: String,
-    enable: Boolean
+    enable: Boolean,
+    synonyms: Array,
+    trailer: Object
 }, { minimize: false })
 
 mediaSchema.plugin(mongooseAggregatePaginate);
@@ -44,4 +46,3 @@ mediaSchema.plugin(mongoosePaginate);
 const Media = mongoose.model('Media', mediaSchema );
 
 export default Media
-  

@@ -27,15 +27,21 @@ export const authGuard = (config) => {
 		if(req.headers.authorization) {
 			let bearer = req.headers.authorization.split(' ');
 			let token = bearer[1];
-	
+
 			jwt.verify(token, config.jwtSecret, function(err, decoded) {
+        if (err) {
+          return res.status(401).json({ message: 'Not logged', isLogged: false })
+        }
 				req.decoded = decoded;
 				next()
 			});
 		} else if(req.headers['x-token']) {
 			console.log('x-token')
 			jwt.verify(req.headers['x-token'], config.jwtSecret, function(err, decoded) {
-				// console.log(decoded)
+        // console.log(decoded)
+        if (err) {
+          return res.status(401).json({ message: 'Not logged', isLogged: false })
+        }
 				req.decoded = decoded;
 				next()
 			});
